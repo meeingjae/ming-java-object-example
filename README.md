@@ -1,0 +1,1 @@
+# ming-java-object-example
