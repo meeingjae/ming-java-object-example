@@ -1,13 +1,14 @@
-package mingtoy.domain.screen.policy.condition;
+package mingtoy.impldomain.screen.policy.condition;
 
 import lombok.AllArgsConstructor;
 import mingtoy.domain.screen.Screening;
+import mingtoy.domain.screen.policy.condition.DiscountCondition;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @AllArgsConstructor
-public class PeriodCondition implements DiscountCondition{
+public class PeriodCondition implements DiscountCondition {
 
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
