@@ -1,10 +1,11 @@
-package mingtoy.domain.screen.policy.condition;
+package mingtoy.impldomain.screen.policy.condition;
 
 import lombok.AllArgsConstructor;
 import mingtoy.domain.screen.Screening;
+import mingtoy.domain.screen.policy.condition.DiscountCondition;
 
 @AllArgsConstructor
-public class SequenceCondition implements DiscountCondition{
+public class SequenceCondition implements DiscountCondition {
 
     private int sequence;
 

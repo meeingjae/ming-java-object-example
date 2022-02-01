@@ -1,4 +1,4 @@
-package mingtoy.domain.screen.policy;
+package mingtoy.impldomain.screen.policy;
 
 import mingtoy.domain.screen.Money;
 import mingtoy.domain.screen.Screening;
