@@ -1,10 +1,12 @@
 package mingtoy.domain.mobile;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+@Getter
 @AllArgsConstructor
 public class Call {
 
