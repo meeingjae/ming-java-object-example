@@ -3,38 +3,34 @@ package mingtoy.domain.mobile;
 import mingtoy.domain.screen.Money;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
-public class NightlyDiscountPhone {
+public class NightlyDiscountPhone extends Phone {
 
     private static final int LATE_NIGHT_HOUR = 22;
 
-    private Money      nightlyAmount;
-    private Money      regularAmount;
-    private Duration   seconds;
-    private double     taxRate;
-    private List<Call> calls = new ArrayList<>();
+    private Money nightlyAmount;
 
-    public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds, double taxRate) {
+    public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds) {
 
+        super(regularAmount, seconds);
         this.nightlyAmount = nightlyAmount;
-        this.regularAmount = regularAmount;
-        this.seconds = seconds;
-        this.taxRate = taxRate;
     }
 
-    public Money calcaulateFee() {
+    @Override
+    public Money calculateFee() {
 
-        Money result = Money.ZERO;
+        Money result = super.calculateFee();
 
-        for (Call call : calls) {
+        Money nightlyFee = Money.ZERO;
+
+        for (Call call : getCalls()) {
             if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
-                result = result.plus(nightlyAmount.times(call.getDuration().getSeconds() / seconds.getSeconds()));
-            } else {
-                result = result.plus(regularAmount.times(call.getDuration().getSeconds() / seconds.getSeconds()));
+                nightlyFee = nightlyFee.plus(
+                        getAmount()
+                                .minus(nightlyAmount)
+                                .times(call.getDuration().getSeconds() / getSeconds().getSeconds()));
             }
         }
-        return result.minus(result.times(taxRate));
+        return result.minus(nightlyFee);
     }
 }
