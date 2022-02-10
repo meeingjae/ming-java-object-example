@@ -12,6 +12,7 @@ public class Phone {
 
     private Money      money;
     private Duration   seconds;
+    private double taxRate;
     private List<Call> calls = new ArrayList<>();
 
     public Phone(Money money, Duration seconds) {
@@ -32,6 +33,6 @@ public class Phone {
         for (Call call : calls) {
             result = result.plus(money.times(call.getDuration().getSeconds() / seconds.getSeconds()));
         }
-        return result;
+        return result.plus(result.times(taxRate));
     }
 }
