@@ -11,11 +11,10 @@ public class RegularPhone extends Phone {
     private Money    money;
     private Duration seconds;
 
-    public RegularPhone(Money money, Duration seconds, double taxRate) {
+    public RegularPhone(Money money, Duration seconds) {
 
         this.money = money;
         this.seconds = seconds;
-        super.setTaxRate(taxRate);
     }
 
     @Override

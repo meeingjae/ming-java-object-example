@@ -41,7 +41,7 @@ public class main {
         System.out.println(screening.calculateFee(2).getAmount());
         System.out.println(screening2.calculateFee(2).getAmount());
 
-        RegularPhone regularPhone = new RegularPhone(Money.ones(2L),Duration.ofSeconds(2),10.5);
+        RegularPhone regularPhone = new RegularPhone(Money.ones(2L),Duration.ofSeconds(2));
         regularPhone.call(new Call(LocalDateTime.now(), LocalDateTime.now().plusMinutes(2L)));
         System.out.println(regularPhone.calculateFee().getAmount());
     }
