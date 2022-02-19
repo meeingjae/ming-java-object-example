@@ -4,19 +4,14 @@ import mingtoy.domain.screen.Money;
 
 import java.time.Duration;
 
-public class RateDiscountabeNightlyDiscountPhone extends NightlyDiscountPhone{
+public class RateDiscountabeNightlyDiscountPhone extends NightlyDiscountPhone {
 
     private Money discountAmount;
 
     public RateDiscountabeNightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds,
-            Money discountAmount) {
+            Money discountAmount, RegularPolicy regularPolicy) {
 
-        super(nightlyAmount, regularAmount, seconds);
+        super(nightlyAmount, regularAmount, seconds, regularPolicy);
         this.discountAmount = discountAmount;
-    }
-
-    @Override
-    public Money afterCalculated(Money fee) {
-        return fee.minus(discountAmount);
     }
 }

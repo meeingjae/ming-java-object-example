@@ -1,13 +1,15 @@
 package mingtoy;
 
-import mingtoy.domain.mobile.Call;
-import mingtoy.domain.mobile.RegularPhone;
-import mingtoy.impldomain.screen.policy.AmountDiscountPolicy;
+import mingtoy.domain.mobile.NightlyDiscountPolicy;
+import mingtoy.domain.mobile.Phone;
+import mingtoy.domain.mobile.RateDiscountablePolicy;
+import mingtoy.domain.mobile.TaxablePolicy;
 import mingtoy.domain.screen.Money;
 import mingtoy.domain.screen.Movie;
+import mingtoy.domain.screen.Screening;
+import mingtoy.impldomain.screen.policy.AmountDiscountPolicy;
 import mingtoy.impldomain.screen.policy.NoneDiscountPolicy;
 import mingtoy.impldomain.screen.policy.condition.PeriodCondition;
-import mingtoy.domain.screen.Screening;
 import mingtoy.impldomain.screen.policy.condition.SequenceCondition;
 
 import java.time.DayOfWeek;
@@ -41,8 +43,9 @@ public class main {
         System.out.println(screening.calculateFee(2).getAmount());
         System.out.println(screening2.calculateFee(2).getAmount());
 
-        RegularPhone regularPhone = new RegularPhone(Money.ones(2L),Duration.ofSeconds(2));
-        regularPhone.call(new Call(LocalDateTime.now(), LocalDateTime.now().plusMinutes(2L)));
-        System.out.println(regularPhone.calculateFee().getAmount());
+        Phone phone = new Phone(
+                new TaxablePolicy(0.05,
+                        new RateDiscountablePolicy(Money.ones(1000),
+                                new NightlyDiscountPolicy(Money.ones(1000), Money.ones(500), Duration.ofSeconds(10)))));
     }
 }

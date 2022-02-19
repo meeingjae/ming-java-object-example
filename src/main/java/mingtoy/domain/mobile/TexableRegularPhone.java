@@ -8,14 +8,9 @@ public class TexableRegularPhone extends RegularPhone {
 
     private double taxRate;
 
-    public TexableRegularPhone(Money money, Duration seconds, double taxRate) {
+    public TexableRegularPhone(Money money, Duration seconds, double taxRate, RegularPolicy regularPolicy) {
 
-        super(money, seconds);
+        super(money, seconds, regularPolicy);
         this.taxRate = taxRate;
-    }
-
-    @Override
-    public Money afterCalculated(Money fee) {
-        return fee.plus(fee.times(taxRate));
     }
 }
