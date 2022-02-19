@@ -1,13 +1,21 @@
 package mingtoy.domain.mobile;
 
+import lombok.Getter;
 import mingtoy.domain.screen.Money;
 
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Phone {
+@Getter
+public class Phone {
 
+    private RatePolicy ratePolicy;
     private List<Call> calls = new ArrayList<>();
+
+    public Phone(RatePolicy ratePolicy) {
+
+        this.ratePolicy = ratePolicy;
+    }
 
     public void call(Call call) {
 
@@ -16,17 +24,6 @@ abstract class Phone {
 
     public Money calculateFee() {
 
-        Money result = Money.ZERO;
-
-        for (Call call : calls) {
-            result = calculateCallFee(call);
-        }
-        return result;
+        return ratePolicy.calculateFee(this);
     }
-
-    protected Money afterCalculated(Money fee) {
-        return fee;
-    }
-
-    protected abstract Money calculateCallFee(Call call);
 }

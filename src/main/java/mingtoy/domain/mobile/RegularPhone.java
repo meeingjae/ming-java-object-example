@@ -11,15 +11,10 @@ public class RegularPhone extends Phone {
     private Money    money;
     private Duration seconds;
 
-    public RegularPhone(Money money, Duration seconds) {
+    public RegularPhone(Money money, Duration seconds, RegularPolicy regularPolicy) {
 
+        super(regularPolicy);
         this.money = money;
         this.seconds = seconds;
-    }
-
-    @Override
-    protected Money calculateCallFee(Call call) {
-
-        return money.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }
 }
