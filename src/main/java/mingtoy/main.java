@@ -1,5 +1,8 @@
 package mingtoy;
 
+import mingtoy.domain.lecture.Grade;
+import mingtoy.domain.lecture.GradeLecture;
+import mingtoy.domain.lecture.Lecture;
 import mingtoy.domain.mobile.NightlyDiscountPolicy;
 import mingtoy.domain.mobile.Phone;
 import mingtoy.domain.mobile.RateDiscountablePolicy;
@@ -16,11 +19,19 @@ import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 
 public class main {
 
+    final static Grade A = new Grade("A", 100, 95);
+    final static Grade B = new Grade("B", 94, 90);
+    final static Grade C = new Grade("C", 89, 85);
+    final static Grade D = new Grade("D", 84, 80);
+    final static Grade F = new Grade("F", 79, 0);
+
     public static void main(String[] args) {
 
+        // Movie Example
         Movie avatar = new Movie(
                 "avatar",
                 Duration.ofMinutes(120),
@@ -43,9 +54,27 @@ public class main {
         System.out.println(screening.calculateFee(2).getAmount());
         System.out.println(screening2.calculateFee(2).getAmount());
 
+        //Phone Example
         Phone phone = new Phone(
                 new TaxablePolicy(0.05,
                         new RateDiscountablePolicy(Money.ones(1000),
                                 new NightlyDiscountPolicy(Money.ones(1000), Money.ones(500), Duration.ofSeconds(10)))));
+
+        //Lecture Example
+        Lecture lecture = new Lecture(
+                90,
+                "민재학 강의",
+                Arrays.asList(90, 80, 70, 99, 100, 30, 55, 70));
+        String evaluation = lecture.evaluate();
+
+        Lecture renewLecture = new GradeLecture(
+                90,
+                "Ming theory",
+                Arrays.asList(90, 80, 70, 99, 100, 30, 55, 70),
+                Arrays.asList(A, B, C, D, F));
+        String renewEvaluate = renewLecture.evaluate();
+
+        System.out.println(evaluation);
+        System.out.println(renewEvaluate);
     }
 }
