@@ -3,6 +3,7 @@ package mingtoy;
 import mingtoy.domain.lecture.Grade;
 import mingtoy.domain.lecture.GradeLecture;
 import mingtoy.domain.lecture.Lecture;
+import mingtoy.domain.lecture.Professor;
 import mingtoy.domain.mobile.NightlyDiscountPolicy;
 import mingtoy.domain.mobile.Phone;
 import mingtoy.domain.mobile.RateDiscountablePolicy;
@@ -28,6 +29,7 @@ public class main {
     final static Grade C = new Grade("C", 89, 85);
     final static Grade D = new Grade("D", 84, 80);
     final static Grade F = new Grade("F", 79, 0);
+    final static Grade G = new Grade("G");
 
     public static void main(String[] args) {
 
@@ -65,16 +67,22 @@ public class main {
                 90,
                 "민재학 강의",
                 Arrays.asList(90, 80, 70, 99, 100, 30, 55, 70));
-        String evaluation = lecture.evaluate();
 
         Lecture renewLecture = new GradeLecture(
                 90,
                 "Ming theory",
                 Arrays.asList(90, 80, 70, 99, 100, 30, 55, 70),
                 Arrays.asList(A, B, C, D, F));
-        String renewEvaluate = renewLecture.evaluate();
 
-        System.out.println(evaluation);
-        System.out.println(renewEvaluate);
+        Professor mingProfessor = new Professor("mingProfessor");
+
+        //Lecture
+        mingProfessor.setLecture(lecture);
+        System.out.println(mingProfessor.compileStatistics());
+
+        //GradeLecture
+        mingProfessor.setLecture(renewLecture);
+        System.out.println(mingProfessor.compileStatistics());
+
     }
 }

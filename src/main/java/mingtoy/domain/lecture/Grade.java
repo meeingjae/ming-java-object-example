@@ -13,6 +13,11 @@ public class Grade {
         this.lower = lower;
     }
 
+    public Grade(String name) {
+
+        this.name = name;
+    }
+
     public String getName() {
 
         return name;
