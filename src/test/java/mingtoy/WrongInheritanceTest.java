@@ -39,4 +39,48 @@ public class WrongInheritanceTest {
         //assert (testSet.collectionCount == 3);
         assert (testSet.collectionCount == 6);
     }
+
+    public class Parent {
+
+        public void onlyParentS() {
+            //2
+            System.out.println("return alphabet : " + alPhabet());
+            //4
+        }
+
+        public void call() {
+
+            System.out.println("parent method call");
+        }
+
+        public String alPhabet() {
+
+            return "P";
+        }
+    }
+
+
+    public class Son extends Parent {
+
+        public void call() {
+
+            System.out.println("son method call");
+        }
+
+        public String alPhabet() {
+            //3
+            return "S";
+        }
+    }
+
+    @Test
+    public void downCastingExample() {
+
+        Parent parent = new Son();
+        Son son = (Son) parent;
+        son.call();
+
+        Son selfReference = new Son();
+        son.onlyParentS(); // 1
+    }
 }
