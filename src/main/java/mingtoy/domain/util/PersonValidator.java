@@ -1,4 +1,6 @@
-package mingtoy;
+package mingtoy.domain.util;
+
+import mingtoy.impldomain.Person;
 
 import java.util.function.Function;
 
