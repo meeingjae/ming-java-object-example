@@ -1,4 +1,4 @@
-package mingtoy;
+package mingtoy.impldomain;
 
 public class Person {
 
