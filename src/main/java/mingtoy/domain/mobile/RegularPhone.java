@@ -11,9 +11,9 @@ public class RegularPhone extends Phone {
     private Money    money;
     private Duration seconds;
 
-    public RegularPhone(Money money, Duration seconds, RegularPolicy regularPolicy) {
+    public RegularPhone(Money money, Duration seconds, FixedFeePolicy fixedFeePolicy) {
 
-        super(regularPolicy);
+        super(fixedFeePolicy);
         this.money = money;
         this.seconds = seconds;
     }

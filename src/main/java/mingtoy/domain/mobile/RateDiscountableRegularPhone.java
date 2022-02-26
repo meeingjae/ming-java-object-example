@@ -9,9 +9,9 @@ public class RateDiscountableRegularPhone extends RegularPhone {
     private Money discountAmount;
 
     public RateDiscountableRegularPhone(Money money, Duration seconds, Money discountAmount,
-            RegularPolicy regularPolicy) {
+            FixedFeePolicy fixedFeePolicy) {
 
-        super(money, seconds, regularPolicy);
+        super(money, seconds, fixedFeePolicy);
         this.discountAmount = discountAmount;
     }
 }

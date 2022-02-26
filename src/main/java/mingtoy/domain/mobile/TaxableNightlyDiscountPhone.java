@@ -9,9 +9,9 @@ public class TaxableNightlyDiscountPhone extends NightlyDiscountPhone {
     private double taxRate;
 
     public TaxableNightlyDiscountPhone(Money nightlyAmount, Money regularAmount,
-            Duration seconds, double taxRate, RegularPolicy regularPolicy) {
+            Duration seconds, double taxRate, FixedFeePolicy fixedFeePolicy) {
 
-        super(nightlyAmount, regularAmount, seconds, regularPolicy);
+        super(nightlyAmount, regularAmount, seconds, fixedFeePolicy);
         this.taxRate = taxRate;
     }
 
