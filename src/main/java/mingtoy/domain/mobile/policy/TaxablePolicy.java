@@ -1,4 +1,4 @@
-package mingtoy.domain.mobile;
+package mingtoy.domain.mobile.policy;
 
 import mingtoy.domain.screen.Money;
 

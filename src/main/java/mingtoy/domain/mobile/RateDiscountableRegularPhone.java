@@ -1,5 +1,6 @@
 package mingtoy.domain.mobile;
 
+import mingtoy.domain.mobile.policy.FixedFeePolicy;
 import mingtoy.domain.screen.Money;
 
 import java.time.Duration;
