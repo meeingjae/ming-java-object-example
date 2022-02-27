@@ -1,6 +1,7 @@
 package mingtoy.domain.mobile;
 
 import lombok.Getter;
+import mingtoy.domain.mobile.policy.RatePolicy;
 import mingtoy.domain.screen.Money;
 
 import java.util.ArrayList;

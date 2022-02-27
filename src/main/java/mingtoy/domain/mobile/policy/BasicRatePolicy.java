@@ -1,5 +1,7 @@
-package mingtoy.domain.mobile;
+package mingtoy.domain.mobile.policy;
 
+import mingtoy.domain.mobile.Call;
+import mingtoy.domain.mobile.Phone;
 import mingtoy.domain.screen.Money;
 
 public abstract class BasicRatePolicy implements RatePolicy {

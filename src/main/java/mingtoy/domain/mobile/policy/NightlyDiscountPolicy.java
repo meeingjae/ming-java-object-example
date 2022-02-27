@@ -1,5 +1,6 @@
-package mingtoy.domain.mobile;
+package mingtoy.domain.mobile.policy;
 
+import mingtoy.domain.mobile.Call;
 import mingtoy.domain.screen.Money;
 
 import java.time.Duration;
