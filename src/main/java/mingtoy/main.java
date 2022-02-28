@@ -4,10 +4,6 @@ import mingtoy.domain.lecture.Grade;
 import mingtoy.domain.lecture.GradeLecture;
 import mingtoy.domain.lecture.Lecture;
 import mingtoy.domain.lecture.Professor;
-import mingtoy.domain.mobile.policy.NightlyDiscountPolicy;
-import mingtoy.domain.mobile.Phone;
-import mingtoy.domain.mobile.policy.RateDiscountablePolicy;
-import mingtoy.domain.mobile.policy.TaxablePolicy;
 import mingtoy.domain.screen.Money;
 import mingtoy.domain.screen.Movie;
 import mingtoy.domain.screen.Screening;
@@ -57,10 +53,6 @@ public class main {
         System.out.println(screening2.calculateFee(2).getAmount());
 
         //Phone Example
-        Phone phone = new Phone(
-                new TaxablePolicy(0.05,
-                        new RateDiscountablePolicy(Money.ones(1000),
-                                new NightlyDiscountPolicy(Money.ones(1000), Money.ones(500), Duration.ofSeconds(10)))));
 
         //Lecture Example
         Lecture lecture = new Lecture(
